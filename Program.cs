@@ -12,7 +12,8 @@ namespace MidiTest
             var inputDevices = InputDevice.GetAll().ToArray();
             
             #region Input
-            using var inputDevice = InputDevice.GetByName(inputDevices[0].ToString());
+            // 0 for Live, 1 for PGM
+            using var inputDevice = InputDevice.GetByName(inputDevices[1].ToString());
             inputDevice.EventReceived += OnEventReceived;
 
             do {
