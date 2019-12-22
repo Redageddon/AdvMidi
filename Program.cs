@@ -1,5 +1,7 @@
 ﻿using System;
+using Melanchall.DryWetMidi.Common;
 using Melanchall.DryWetMidi.Devices;
+using Melanchall.DryWetMidi.Core;
 
 namespace MidiTest
 {
@@ -7,6 +9,8 @@ namespace MidiTest
     {
         static void Main()
         {
+            #region initiation
+
             Console.WriteLine("Pick a midi device.");
             foreach (var device in InputDevice.GetAll())
             {
@@ -24,7 +28,38 @@ namespace MidiTest
 
             Console.Clear();
             Console.WriteLine("Port is clear.");
-
+            #endregion
+            
+            
+            
+            
+            
+            
+            
+            using var outputDevice = OutputDevice.GetById(_);
+            outputDevice.EventSent += OnEventSent;
+            while (true)
+            {
+                
+                outputDevice.SendEvent(new NoteOnEvent(SevenBitNumber.Parse("55"), SevenBitNumber.Parse("100")));
+            }
+           
+            
+            void OnEventSent(object sender, MidiEventSentEventArgs e)
+            {
+                var midiDevice = (MidiDevice)sender;
+                Console.WriteLine($"Event sent to '{midiDevice.Name}' at {DateTime.Now}: {e.Event}");
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             #region Input
 
             // 0 for Live, 1 for PGM
@@ -47,11 +82,11 @@ namespace MidiTest
                 bool on = Convert.ToBoolean(int.Parse(inputs[1]));
                 int note = int.Parse(inputs[0]);
                 DoExecution(note);
-                Console.WriteLine($"{on} {note}");
+                //Console.WriteLine($"{on} {note}");
             }
 
             #endregion
-
+            
             void DoExecution(int note)
             {
                 switch (note)
@@ -376,13 +411,13 @@ namespace MidiTest
                         Console.WriteLine("Case 88");
                         break;
                     }
-                    default:
-                    {
-                        Console.WriteLine("Default case");
-                        break;
-                    }
                 }
             }
+
+            
+            
+            
+            
         }
     }
 }
