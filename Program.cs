@@ -9,7 +9,7 @@ namespace MidiTest
     {
         static void Main()
         {
-            #region initiation
+            #region input initiation
 
             Console.WriteLine("Pick a midi device.");
             foreach (var device in InputDevice.GetAll())
@@ -19,8 +19,8 @@ namespace MidiTest
 
             Console.WriteLine();
             string deviceChoice = Console.ReadLine();
-            int _;
-            while (!int.TryParse(deviceChoice, out _))
+            int inputTemp;
+            while (!int.TryParse(deviceChoice, out inputTemp))
             {
                 Console.WriteLine("You did not enter anything or you entered something incorrectly. Please try again");
                 deviceChoice = Console.ReadLine();
@@ -29,14 +29,14 @@ namespace MidiTest
             Console.Clear();
             Console.WriteLine("Port is clear.");
             #endregion
-            
-            
-            
-            
-            
-            
-            
-            using var outputDevice = OutputDevice.GetById(_);
+
+
+
+
+
+
+            int outputTemp = 2;
+            using var outputDevice = OutputDevice.GetById(outputTemp);
             outputDevice.EventSent += OnEventSent;
             while (true)
             {
@@ -63,7 +63,7 @@ namespace MidiTest
             #region Input
 
             // 0 for Live, 1 for PGM
-            using var inputDevice = InputDevice.GetById(_);
+            using var inputDevice = InputDevice.GetById(inputTemp);
             inputDevice.EventReceived += OnEventReceived;
 
             do
