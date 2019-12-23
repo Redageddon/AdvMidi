@@ -42,9 +42,7 @@ namespace Melanchall.DryWetMidi.Core
         public override string ToString()
         {
             //return $"Note On [{Channel}] ({NoteNumber}, {Velocity})";
-            int on = Velocity;
-            if (on == 127) on = 1;
-            return $"{NoteNumber},{on}";
+            return $"{NoteNumber},{Velocity}";
         }
 
         #endregion

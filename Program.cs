@@ -9,84 +9,71 @@ namespace MidiTest
     {
         static void Main()
         {
-            #region input initiation
+            #region initiation
 
-            Console.WriteLine("Pick a midi device.");
             foreach (var device in InputDevice.GetAll())
-            {
-                Console.WriteLine($"{device.Id}: {device}");
-            }
-
+                Console.WriteLine($"{device.Id}: {device}", Console.ForegroundColor = ConsoleColor.White);
             Console.WriteLine();
-            string deviceChoice = Console.ReadLine();
+
+            string inputDeviceId = Console.ReadLine();
             int inputTemp;
-            while (!int.TryParse(deviceChoice, out inputTemp))
+            while (!int.TryParse(inputDeviceId, out inputTemp))
             {
                 Console.WriteLine("You did not enter anything or you entered something incorrectly. Please try again");
-                deviceChoice = Console.ReadLine();
+                inputDeviceId = Console.ReadLine();
             }
 
             Console.Clear();
+            Console.WriteLine("Pick a midi output device.\n", Console.ForegroundColor = ConsoleColor.Blue);
+            foreach (var device in InputDevice.GetAll())
+                Console.WriteLine($"{device.Id}: {device}", Console.ForegroundColor = ConsoleColor.White);
+            Console.WriteLine();
+
+            string outputDeviceId = Console.ReadLine();
+            int outputTemp;
+            while (!int.TryParse(outputDeviceId, out outputTemp))
+            {
+                Console.WriteLine("You did not enter anything or you entered something incorrectly. Please try again");
+                outputDeviceId = Console.ReadLine();
+            }
+            Console.Clear();
             Console.WriteLine("Port is clear.");
+
             #endregion
 
-
-
-
-
-
-            int outputTemp = 2;
+            // output = outputDevice.SendEvent(new NoteOnEvent(SevenBitNumber.Parse("note"), SevenBitNumber.Parse("velocity")));
+            if (outputTemp > OutputDevice.GetDevicesCount())
+            {
+                outputTemp = OutputDevice.GetDevicesCount();
+            }
             using var outputDevice = OutputDevice.GetById(outputTemp);
-            outputDevice.EventSent += OnEventSent;
-            while (true)
-            {
-                
-                outputDevice.SendEvent(new NoteOnEvent(SevenBitNumber.Parse("55"), SevenBitNumber.Parse("100")));
-            }
-           
-            
-            void OnEventSent(object sender, MidiEventSentEventArgs e)
-            {
-                var midiDevice = (MidiDevice)sender;
-                Console.WriteLine($"Event sent to '{midiDevice.Name}' at {DateTime.Now}: {e.Event}");
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+             
+
             #region Input
 
-            // 0 for Live, 1 for PGM
             using var inputDevice = InputDevice.GetById(inputTemp);
             inputDevice.EventReceived += OnEventReceived;
 
             do
             {
-                while (!Console.KeyAvailable)
-                {
-                    inputDevice.StartEventsListening();
-                }
+                inputDevice.StartEventsListening();
             } while (Console.ReadKey(true).Key != ConsoleKey.Enter);
 
+            // NoteAftertouchEvent
             // NoteOnEvent
             void OnEventReceived(object sender, MidiEventReceivedEventArgs e)
             {
                 string keyEvent = e.Event.ToString();
                 var inputs = keyEvent.Split(',');
-                bool on = Convert.ToBoolean(int.Parse(inputs[1]));
+                int velocity = int.Parse(inputs[1]);
                 int note = int.Parse(inputs[0]);
-                DoExecution(note);
-                //Console.WriteLine($"{on} {note}");
+                //DoExecution(note);
+                outputDevice.SendEvent(new NoteOnEvent(SevenBitNumber.Parse(note.ToString()), SevenBitNumber.Parse(velocity.ToString())));
+                Console.WriteLine($"{note}:{velocity}");
             }
 
             #endregion
-            
+
             void DoExecution(int note)
             {
                 switch (note)
@@ -413,11 +400,6 @@ namespace MidiTest
                     }
                 }
             }
-
-            
-            
-            
-            
         }
     }
 }
