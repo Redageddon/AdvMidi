@@ -3,7 +3,7 @@ using Melanchall.DryWetMidi.Common;
 using Melanchall.DryWetMidi.Devices;
 using Melanchall.DryWetMidi.Core;
 
-namespace MidiTest
+namespace AdvMidi
 {
     class Program
     {
