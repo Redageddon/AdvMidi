@@ -1,7 +1,7 @@
 ﻿using System;
 using Melanchall.DryWetMidi.Devices;
 
-namespace AdvMidi
+namespace AdvMidi.PreFab
 {
     public class Initiate
     {
@@ -17,13 +17,11 @@ namespace AdvMidi
                 Console.WriteLine($"{device.Id}: {device}", Console.ForegroundColor = ConsoleColor.White);
             }
             Console.WriteLine();
-
-            string inputDeviceId = Console.ReadLine();
+            
             int inputTemp;
-            while (!int.TryParse(inputDeviceId, out inputTemp))
+            while (!int.TryParse(Console.ReadLine(), out inputTemp))
             {
-                Console.WriteLine("You did not enter anything or you entered something incorrectly. Please try again");
-                inputDeviceId = Console.ReadLine();
+                Console.WriteLine("You did not enter a number. Please try again");
             }
             Console.Clear();
             return inputTemp;
@@ -36,12 +34,11 @@ namespace AdvMidi
                 Console.WriteLine($"{device.Id}: {device}", Console.ForegroundColor = ConsoleColor.White);
             Console.WriteLine();
 
-            string outputDeviceId = Console.ReadLine();
+            
             int outputTemp;
-            while (!int.TryParse(outputDeviceId, out outputTemp))
+            while (!int.TryParse(Console.ReadLine(), out outputTemp))
             {
-                Console.WriteLine("You did not enter anything or you entered something incorrectly. Please try again");
-                outputDeviceId = Console.ReadLine();
+                Console.WriteLine("You did not enter a number. Please try again");
             }
             Console.Clear();
             if (outputTemp > OutputDevice.GetDevicesCount())
