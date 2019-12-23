@@ -6,9 +6,9 @@
 5. On the application output for the Launchpad pro is MIDIIN3 (Launchpad Pro)
 
 Notes: more modes coming soon...
-planned mode #1: ability to display bmp images
-planned mode #2: ability to play gif's
-planned mode #3: tetris
+planned mode #1: ability to display bmp images    
+planned mode #2: ability to play gif's    
+planned mode #3: tetris    
 
 Additional notes:
 If you have any ideas for more modes to add message me or send a pull request
