@@ -11,8 +11,11 @@ namespace MidiTest
         {
             #region initiation
 
+            Console.WriteLine("Pick a midi input device.\n", Console.ForegroundColor = ConsoleColor.DarkRed);
             foreach (var device in InputDevice.GetAll())
+            {
                 Console.WriteLine($"{device.Id}: {device}", Console.ForegroundColor = ConsoleColor.White);
+            }
             Console.WriteLine();
 
             string inputDeviceId = Console.ReadLine();
