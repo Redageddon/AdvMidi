@@ -18,3 +18,7 @@ You need .Net core 3 for this application to work. You can get it at https://dot
 refer to https://d2xhy469pqj8rc.cloudfront.net/sites/default/files/novation/downloads/10598/launchpad-pro-programmers-reference-guide_0.pdf for more info
 
 ![alt text](https://raw.githubusercontent.com/rubiksmaster02/AdvMidi/master/ProSetup.PNG)
+
+
+
+Contat me at: therealrubiksmaster@gmail.com or Rubiksmaster02#9076
