@@ -14,3 +14,6 @@ If you have any ideas for more modes to add message me or send a pull request
 
 You need .Net core 3 for this application to work. You can get it at https://dotnet.microsoft.com/download/dotnet-core/3.0 get the sdk if you are wanting to contribute and runtime if you just want to use it.
 
+refer to https://d2xhy469pqj8rc.cloudfront.net/sites/default/files/novation/downloads/10598/launchpad-pro-programmers-reference-guide_0.pdf for more info
+
+![alt text](https://raw.githubusercontent.com/rubiksmaster02/AdvMidi/blob/master/ProSetup.PNG)
