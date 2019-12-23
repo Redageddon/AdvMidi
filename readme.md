@@ -5,7 +5,7 @@
 4. On the application input for the Launchpad pro is MIDIIN2 (Launchpad Pro)
 5. On the application output for the Launchpad pro is MIDIIN3 (Launchpad Pro)
 
-Notes: more modes coming soon...
+Notes: more modes coming soon...    
 planned mode #1: ability to display bmp images    
 planned mode #2: ability to play gif's    
 planned mode #3: tetris    
