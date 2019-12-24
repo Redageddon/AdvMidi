@@ -3,7 +3,7 @@ using Melanchall.DryWetMidi.Devices;
 
 namespace AdvMidi.PreFab
 {
-    public class Initiate
+    public static class FlowInitiation
     {
         public static (int, int) Devices()
         {

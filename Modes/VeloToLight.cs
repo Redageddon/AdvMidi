@@ -6,17 +6,16 @@ using Melanchall.DryWetMidi.Core;
 
 namespace AdvMidi
 {
-    public class VeloToLight
+    public static class VeloToLight
     {
         public static void VelocityToLight()
         {
-            
-            (int inputTemp, int outputTemp) = Initiate.Devices();
-            
+            (int inputTemp, int outputTemp) = FlowInitiation.Devices();
+
             //unless you want your computer to break, do not remove the using 
             using var outputDevice = OutputDevice.GetById(outputTemp);
             using var inputDevice = InputDevice.GetById(inputTemp);
-            
+
             inputDevice.EventReceived += OnEventReceived;
 
             do
@@ -31,8 +30,9 @@ namespace AdvMidi
                 string keyEvent = e.Event.ToString();
                 var inputs = keyEvent.Split(',');
                 (int velocity, int note) = (int.Parse(inputs[1]), int.Parse(inputs[0]));
-                outputDevice.SendEvent(new NoteOnEvent(SevenBitNumber.Parse(note.ToString()), SevenBitNumber.Parse((velocity).ToString())));
-                
+                outputDevice.SendEvent(new NoteOnEvent(SevenBitNumber.Parse(note.ToString()),
+                    SevenBitNumber.Parse((velocity).ToString())));
+
                 Console.WriteLine($"{note}:{velocity}");
             }
         }
