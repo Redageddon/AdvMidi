@@ -1,5 +1,4 @@
 .idea
 bin
 obj
-Executable/UserExecution/*
-!Executable/UserExecution/DoNotRemoveMe
+*.txt
