@@ -34,7 +34,7 @@ namespace AdvMidi
                 if (int.Parse(inputs[1]) == 127) DoExecution(note);
             }
         }
-        
+
         private static bool IsIndexValid(int i)
         {
             if (!i.ToString().Contains("9") && !i.ToString().Contains("0")) return true;
@@ -47,14 +47,13 @@ namespace AdvMidi
             CaseT = new List<Script<object>>();
             for (int i = 11; i < 89; i++)
             {
-                if (IsIndexValid(i))
+                if (!IsIndexValid(i)) continue;
+                if (!File.Exists($"UserExecution/{i}.txt") || File.ReadAllText($"UserExecution/{i}.txt") == "")
                 {
-                    if (!File.Exists($"UserExecution/{i}.txt") || File.ReadAllText($"UserExecution/{i}.txt") == "")
-                    {
-                        File.WriteAllText($"UserExecution/{i}.txt", "//write your code here");
-                    }
-                    CaseT.Add(CSharpScript.Create(File.ReadAllText($"UserExecution/{i}.txt")));
+                    File.WriteAllText($"UserExecution/{i}.txt", "//write your code here");
                 }
+
+                CaseT.Add(CSharpScript.Create(File.ReadAllText($"UserExecution/{i}.txt")));
             }
         }
 
