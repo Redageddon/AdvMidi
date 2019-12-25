@@ -5,11 +5,17 @@
 4. On the application input for the Launchpad pro is MIDIIN2 (Launchpad Pro)
 5. On the application output for the Launchpad pro is MIDIIN3 (Launchpad Pro)
 
-Notes: more modes coming soon...    
+Modes: these are the currently working modes   
+Velocity to light color   
+user execution - you can write the code for exactly what you want a button to do
+
+Notes: more modes coming soon...   
 planned mode #1: ability to display bmp images    
 planned mode #2: ability to play gif's    
 planned mode #3: tetris    
-planned mode #4: snake
+planned mode #4: snake   
+planned mode #5: Minesweeper   
+planned mode #6: Audio visualizer   
 
 Additional notes:
 If you have any ideas for more modes to add message me or send a pull request
@@ -20,7 +26,7 @@ You also need the NuGet Microsoft.CodeAnalysis.CSharp.Scripting
 refer to https://d2xhy469pqj8rc.cloudfront.net/sites/default/files/novation/downloads/10598/launchpad-pro-programmers-reference-guide_0.pdf for more info
 
 ![alt text](https://raw.githubusercontent.com/rubiksmaster02/AdvMidi/master/ProSetup.PNG)
-
+![alt text](https://raw.githubusercontent.com/rubiksmaster02/AdvMidi/master/UserExecutionRefrence.PNG)
 
 
 Contat me at: therealrubiksmaster@gmail.com or Rubiksmaster02#9076
