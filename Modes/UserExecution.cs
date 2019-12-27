@@ -48,6 +48,7 @@ namespace AdvMidi
             for (int i = 11; i < 89; i++)
             {
                 if (!IsIndexValid(i)) continue;
+                if (!Directory.Exists("UserExecution")) Directory.CreateDirectory("UserExecution");
                 if (!File.Exists($"UserExecution/{i}.txt") || File.ReadAllText($"UserExecution/{i}.txt") == "")
                 {
                     File.WriteAllText($"UserExecution/{i}.txt", "//write your code here");
