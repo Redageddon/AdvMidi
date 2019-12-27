@@ -1,4 +1,4 @@
 .idea
 bin
 obj
-Executable/UserExecution/*.txt
+UserExecution/*.txt
