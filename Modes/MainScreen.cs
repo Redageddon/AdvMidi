@@ -9,12 +9,13 @@ namespace AdvMidi
             Console.WriteLine("What mode do you want to do?\n");
             Console.WriteLine(@"1:   Velocity to Light colors
 2:   User Execution - some things might not work yet idk
-3:   image - not implemented yet
-3.5: gif - not implemented yet
-4:   Tetris - not implemented yet
-5:   Snake - not implemented yet
-6:   Audio visualizer - not implemented yet
-7:   Minesweeper - not implemented yet
+3:   midi to key stroke  
+4:   image - not implemented yet
+4.5: gif - not implemented yet
+5:   Tetris - not implemented yet
+6:   Snake - not implemented yet
+7:   Audio visualizer - not implemented yet
+8:   Minesweeper - not implemented yet
 ");
             int intModeChoice;
             while (!int.TryParse(Console.ReadLine(), out intModeChoice))

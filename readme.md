@@ -10,17 +10,19 @@ Velocity to light color
 user execution - you can write the code for exactly what you want a button to do
 
 Notes: more modes coming soon...   
-planned mode #1: ability to display bmp images    
-planned mode #2: ability to play gif's    
-planned mode #3: tetris    
-planned mode #4: snake   
-planned mode #5: Minesweeper   
-planned mode #6: Audio visualizer   
+planned mode #1: midi to key stroke   
+planned mode #2: ability to display bmp images    
+planned mode #3: ability to play gif's    
+planned mode #4: tetris    
+planned mode #5: snake   
+planned mode #6: Minesweeper   
+planned mode #7: Audio visualizer   
 
 Additional notes:
 If you have any ideas for more modes to add message me or send a pull request
 
-You need .Net core 3 for this application to work. You can get it at https://dotnet.microsoft.com/download/dotnet-core/3.0 get the sdk if you are wanting to contribute and runtime if you just want to use it.
+You need .Net core 3.1 sdk to work on this project. You can get it at https://dotnet.microsoft.com/download/dotnet-core/3.1   
+run Build.bat to update the .exe in Executable\    
 
 refer to https://d2xhy469pqj8rc.cloudfront.net/sites/default/files/novation/downloads/10598/launchpad-pro-programmers-reference-guide_0.pdf for more info
 
