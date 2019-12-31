@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Windows;
+using AdvMidi.WPFTest;
+
+//using AdvMidi.WPFTest;
 
 namespace AdvMidi
 {
@@ -18,7 +22,7 @@ namespace AdvMidi
 8:   Minesweeper - not implemented yet
 ");
             int intModeChoice;
-            while (!int.TryParse(Console.ReadLine(), out intModeChoice))
+            while (!int.TryParse(Console.ReadLine(), out intModeChoice)) 
             {
                 Console.WriteLine("You did not enter a number. Please try again.");
             }
@@ -31,6 +35,11 @@ namespace AdvMidi
                 case 2:
                     Console.Clear();
                     UserExecution.Execution();
+                    break;
+                case 3:
+                    Console.Clear();
+                    new Application().Run(new MainWindow());
+                    Console.WriteLine("Key Presets finished. You can use it now.");
                     break;
                 default:
                     Console.Clear();

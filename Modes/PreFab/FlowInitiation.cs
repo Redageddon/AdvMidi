@@ -9,9 +9,10 @@ namespace AdvMidi.PreFab
         {
             return (Input(), Output());
         }
-        private static int Input() 
+        private static int Input()
         {
-            Console.WriteLine("Pick a midi input device.\n", Console.ForegroundColor = ConsoleColor.DarkRed);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Pick a midi input device.\n");
             foreach (var device in InputDevice.GetAll())
             {
                 Console.WriteLine($"{device.Id}: {device}", Console.ForegroundColor = ConsoleColor.White);
@@ -29,7 +30,8 @@ namespace AdvMidi.PreFab
 
         private static int Output()
         {
-            Console.WriteLine("Pick a midi output device.\n", Console.ForegroundColor = ConsoleColor.Blue);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Pick a midi output device.\n");
             foreach (var device in InputDevice.GetAll())
                 Console.WriteLine($"{device.Id}: {device}", Console.ForegroundColor = ConsoleColor.White);
             Console.WriteLine();
