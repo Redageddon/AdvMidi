@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using AdvMidi.Modes.PreFab;
+using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Devices;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
@@ -28,10 +29,8 @@ namespace AdvMidi.Modes
             void OnEventReceived(object sender, MidiEventReceivedEventArgs e)
             {
                 if (e.Event.EventType.ToString() != "NoteOn") return;
-                string keyEvent = e.Event.ToString();
-                var inputs = keyEvent.Split(',');
-                int note = int.Parse(inputs[0]);
-                if (int.Parse(inputs[1]) == 127) DoExecution(note);
+                var onEvent = (NoteOnEvent) e.Event;
+                if (onEvent.Velocity == 127) DoExecution(onEvent.NoteNumber);
             }
         }
 
