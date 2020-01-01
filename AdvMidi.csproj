@@ -11,4 +11,25 @@
       <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.5.0-beta1-final" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Executable\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Executable\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Executable\**" />
+      <None Remove="ProSetup.PNG" />
+      <None Remove="UserExecutionRefrence.PNG" />
+      <None Remove="Build.bat" />
+      <None Remove=".gitignore" />
+      <None Remove="readme.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Remove="Executable\**" />
+    </ItemGroup>
+
 </Project>

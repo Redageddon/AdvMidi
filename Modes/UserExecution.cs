@@ -36,17 +36,15 @@ namespace AdvMidi.Modes
 
         private static bool IsIndexValid(int i)
         {
-            if (!i.ToString().Contains("9") && !i.ToString().Contains("0")) return true;
-            return false;
+            return (i - 9) % 10 == 0 || i % 10 == 0;
         }
-
 
         private static void PreloadAllExecutionFiles()
         {
             CaseT = new List<Script<object>>();
             for (int i = 11; i < 89; i++)
             {
-                if (!IsIndexValid(i)) continue;
+                if (IsIndexValid(i)) continue;
                 if (!Directory.Exists("UserExecution")) Directory.CreateDirectory("UserExecution");
                 if (!File.Exists($"UserExecution/{i}.txt") || File.ReadAllText($"UserExecution/{i}.txt") == "")
                 {

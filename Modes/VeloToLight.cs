@@ -10,7 +10,7 @@ namespace AdvMidi.Modes
     {
         public static void VelocityToLight()
         {
-            (int inputTemp, int outputTemp) = FlowInitiation.Devices();
+            var (inputTemp, outputTemp) = FlowInitiation.Devices();
 
             //unless you want your computer to break, do not remove the using 
             using var outputDevice = OutputDevice.GetById(outputTemp);
