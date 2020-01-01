@@ -1,0 +1,3 @@
+[submodule "melanchall/drywetmidi/DryWetMidi"]
+    path = DryWetMidi
+    url = https://github.com/melanchall/drywetmidi
