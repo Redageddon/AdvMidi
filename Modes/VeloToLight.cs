@@ -22,18 +22,34 @@ namespace AdvMidi.Modes
             {
                 inputDevice.StartEventsListening();
             } while (Console.ReadKey(true).Key != ConsoleKey.Enter);
-
-            // NoteAftertouchEvent
-            // NoteOnEvent
+            
             void OnEventReceived(object sender, MidiEventReceivedEventArgs e)
             {
-                string keyEvent = e.Event.ToString();
-                var inputs = keyEvent.Split(',');
-                (int velocity, int note) = (int.Parse(inputs[1]), int.Parse(inputs[0]));
+                var (note, velocity) = (0, 0);
+                
+                switch (e.Event.EventType)
+                {
+                    case MidiEventType.NoteAftertouch:
+                    {
+                        var atEvent = (NoteAftertouchEvent) e.Event;
+                        note = atEvent.NoteNumber;
+                        velocity = atEvent.AftertouchValue;
+                        break;
+                    }
+                    case MidiEventType.NoteOn:
+                    {
+                        var onEvent = (NoteOnEvent) e.Event;
+                        note = onEvent.NoteNumber;
+                        velocity = onEvent.Velocity;
+                        break;
+                    }
+                    default:
+                        Console.WriteLine("I have not implemented that yet. If you would like this to be implemented tell me or edit this on the github");
+                        break;
+                }
                 outputDevice.SendEvent(new NoteOnEvent(SevenBitNumber.Parse(note.ToString()),
                     SevenBitNumber.Parse((velocity).ToString())));
-
-                Console.WriteLine($"{note}:{velocity}");
+                Console.WriteLine($"note: {note}, Velocity: {velocity}");
             }
         }
     }

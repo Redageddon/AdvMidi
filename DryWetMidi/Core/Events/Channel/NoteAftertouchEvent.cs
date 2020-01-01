@@ -73,8 +73,7 @@ namespace Melanchall.DryWetMidi.Core
         /// <returns>A string that represents the current object.</returns>
         public override string ToString()
         {
-            //return $"Note Aftertouch [{Channel}] ({NoteNumber}, {AftertouchValue})";
-            return $"{NoteNumber},{AftertouchValue}";
+            return $"Note Aftertouch [{Channel}] ({NoteNumber}, {AftertouchValue})";
         }
 
         #endregion

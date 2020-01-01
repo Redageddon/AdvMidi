@@ -41,8 +41,7 @@ namespace Melanchall.DryWetMidi.Core
         /// <returns>A string that represents the current object.</returns>
         public override string ToString()
         {
-            //return $"Note On [{Channel}] ({NoteNumber}, {Velocity})";
-            return $"{NoteNumber},{Velocity}";
+            return $"Note On [{Channel}] ({NoteNumber}, {Velocity})";
         }
 
         #endregion
