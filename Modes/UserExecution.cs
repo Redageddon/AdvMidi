@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using AdvMidi.PreFab;
+using AdvMidi.Modes.PreFab;
 using Melanchall.DryWetMidi.Devices;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 
-namespace AdvMidi
+namespace AdvMidi.Modes
 {
     public static class UserExecution
     {

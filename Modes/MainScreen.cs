@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Windows;
-using AdvMidi.WPFTest;
 
-//using AdvMidi.WPFTest;
-
-namespace AdvMidi
+namespace AdvMidi.Modes
 {
     public static class MainScreen
     {

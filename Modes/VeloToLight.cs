@@ -1,10 +1,10 @@
 ﻿using System;
-using AdvMidi.PreFab;
+using AdvMidi.Modes.PreFab;
 using Melanchall.DryWetMidi.Common;
-using Melanchall.DryWetMidi.Devices;
 using Melanchall.DryWetMidi.Core;
+using Melanchall.DryWetMidi.Devices;
 
-namespace AdvMidi
+namespace AdvMidi.Modes
 {
     public static class VeloToLight
     {

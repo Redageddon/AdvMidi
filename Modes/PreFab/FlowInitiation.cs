@@ -1,7 +1,7 @@
 ﻿using System;
 using Melanchall.DryWetMidi.Devices;
 
-namespace AdvMidi.PreFab
+namespace AdvMidi.Modes.PreFab
 {
     public static class FlowInitiation
     {

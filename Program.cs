@@ -1,10 +1,10 @@
-﻿using System;
+﻿using AdvMidi.Modes;
 
 namespace AdvMidi
 {
     internal static class Program
     {
-        [STAThread]
+        [System.STAThread]
         private static void Main()
         {
             MainScreen.ModeSelection();
