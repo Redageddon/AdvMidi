@@ -18,7 +18,7 @@ namespace AdvMidi.Modes
             string[] assignedKeys =  {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"};
             string path = "KeyPresets.txt";
             
-            if (!File.Exists("Test.txt")) File.WriteAllLines(path,assignedKeys);
+            if (!File.Exists(path)) File.WriteAllLines(path,assignedKeys);
             else assignedKeys = File.ReadAllLines(path);
 
             Style buttonStyle = new Style(typeof(Button));

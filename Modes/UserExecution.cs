@@ -50,7 +50,6 @@ namespace AdvMidi.Modes
                 {
                     File.WriteAllText($"UserExecution/{i}.txt", "//write your code here");
                 }
-
                 CaseT.Add(CSharpScript.Create(File.ReadAllText($"UserExecution/{i}.txt")));
             }
         }
