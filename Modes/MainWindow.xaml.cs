@@ -47,7 +47,7 @@ namespace AdvMidi.Modes
                 
                 void Key(object keySender, KeyEventArgs k)
                 {
-                    Console.WriteLine("Sender: " + note.Name + ", Key: " + k.Key);
+                    Console.WriteLine("Sender: " + note.Name + ", Key: " + k.Key.GetHashCode());
                     int noteAtIndex = Array.IndexOf(rootName,int.Parse(note.Name.Split("Button").Max()));
                     var temp = assignedKeys.ToList();
                     temp[noteAtIndex] = k.Key.ToString();
