@@ -10,7 +10,6 @@ Velocity to light color
 user execution - you can write the code for exactly what you want a button to do
 
 Notes: more modes coming soon...   
-planned mode #1: midi to key stroke   
 planned mode #2: ability to display bmp images    
 planned mode #3: ability to play gif's    
 planned mode #4: tetris    

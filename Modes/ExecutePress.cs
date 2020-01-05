@@ -14,6 +14,7 @@ namespace AdvMidi.Modes
         public static void OpenExecution()
         {
             string[] assignedKeys = File.ReadAllLines("KeyPresets.txt");
+            var inputSimulator = new InputSimulator();
 
             var (inputTemp, outputTemp) = FlowInitiation.Devices();
             using var outputDevice = OutputDevice.GetById(outputTemp);
@@ -31,7 +32,6 @@ namespace AdvMidi.Modes
 
                 if (Enum.TryParse(assignedKeys[x], true, out Key key))
                 {
-                    var inputSimulator = new InputSimulator();
                     var virtualKeyCodeAtKey = Enum.GetName(typeof(VirtualKeyCode), KeyInterop.VirtualKeyFromKey(key));
                     VirtualKeyCode enumAtKeyCode = (VirtualKeyCode)Enum.Parse(typeof(VirtualKeyCode), virtualKeyCodeAtKey);
                     inputSimulator.Keyboard.KeyDown(enumAtKeyCode);

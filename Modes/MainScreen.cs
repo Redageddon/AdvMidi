@@ -8,10 +8,10 @@ namespace AdvMidi.Modes
         public static void ModeSelection()
         {
             Console.WriteLine("What mode do you want to do?\n");
-            Console.WriteLine(@"1:   Velocity to Light colors
-2:   User Execution - some things might not work yet idk
+            Console.WriteLine(@"1:   Velocity to colors
+2:   User Execution
 3:   midi to key stroke  
-4:   image - not implemented yet
+4:   display bmp images
 4.5: gif - not implemented yet
 5:   Tetris - not implemented yet
 6:   Snake - not implemented yet
