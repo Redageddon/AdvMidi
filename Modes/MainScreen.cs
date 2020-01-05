@@ -37,6 +37,7 @@ namespace AdvMidi.Modes
                     Console.Clear();
                     new Application().Run(new MainWindow());
                     Console.WriteLine("Key Presets finished. You can use it now.");
+                    ExecutePress.OpenExecution();
                     break;
                 default:
                     Console.Clear();

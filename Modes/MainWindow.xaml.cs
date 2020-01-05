@@ -38,10 +38,13 @@ namespace AdvMidi.Modes
                     LayoutRoot.Children.Add(button);
                 } 
             }
+            
             void ButtonClicked(object sender, RoutedEventArgs e)
             {
                 Button note = (Button) sender;
-                KeyUp += Key;
+                //KeyDown += Key;
+                PreviewKeyDown += Key;
+                
                 void Key(object keySender, KeyEventArgs k)
                 {
                     Console.WriteLine("Sender: " + note.Name + ", Key: " + k.Key);
@@ -51,7 +54,8 @@ namespace AdvMidi.Modes
                     assignedKeys = temp.ToArray();
                     File.WriteAllLines(path, assignedKeys);
                     note.Content = k.Key;
-                    KeyUp -= Key;
+                    k.Handled = true;
+                    PreviewKeyDown -= Key;
                 }
             }
         }

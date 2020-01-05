@@ -1,5 +1,4 @@
 ﻿using System;
-using AdvMidi.Modes.PreFab;
 using Melanchall.DryWetMidi.Common;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Devices;
@@ -25,28 +24,7 @@ namespace AdvMidi.Modes
             
             void OnEventReceived(object sender, MidiEventReceivedEventArgs e)
             {
-                var (note, velocity) = (0, 0);
-                
-                switch (e.Event.EventType)
-                {
-                    case MidiEventType.NoteAftertouch:
-                    {
-                        var atEvent = (NoteAftertouchEvent) e.Event;
-                        note = atEvent.NoteNumber;
-                        velocity = atEvent.AftertouchValue;
-                        break;
-                    }
-                    case MidiEventType.NoteOn:
-                    {
-                        var onEvent = (NoteOnEvent) e.Event;
-                        note = onEvent.NoteNumber;
-                        velocity = onEvent.Velocity;
-                        break;
-                    }
-                    default:
-                        Console.WriteLine("I have not implemented that yet. If you would like this to be implemented tell me or edit this on the github");
-                        break;
-                }
+                var (note, velocity) = NoteVelocityUpdater.Catcher(e);
                 outputDevice.SendEvent(new NoteOnEvent(SevenBitNumber.Parse(note.ToString()),
                     SevenBitNumber.Parse((velocity).ToString())));
                 Console.WriteLine($"note: {note}, Velocity: {velocity}");
