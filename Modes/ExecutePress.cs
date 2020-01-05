@@ -32,13 +32,9 @@ namespace AdvMidi.Modes
                 if (Enum.TryParse(assignedKeys[x], true, out Key key))
                 {
                     var inputSimulator = new InputSimulator();
-                    //Console.WriteLine(Convert.ToString(KeyInterop.VirtualKeyFromKey(key)));
-                    Console.WriteLine(Enum.GetName(typeof(VirtualKeyCode), KeyInterop.VirtualKeyFromKey(key)));
-                    var aaa = Enum.GetName(typeof(VirtualKeyCode), KeyInterop.VirtualKeyFromKey(key));
-                    
-                    inputSimulator.Keyboard.KeyPress();
-                    
-                    Console.WriteLine("..casted and ran..");
+                    var virtualKeyCodeAtKey = Enum.GetName(typeof(VirtualKeyCode), KeyInterop.VirtualKeyFromKey(key));
+                    VirtualKeyCode enumAtKeyCode = (VirtualKeyCode)Enum.Parse(typeof(VirtualKeyCode), virtualKeyCodeAtKey);
+                    inputSimulator.Keyboard.KeyDown(enumAtKeyCode);
                     Console.WriteLine(key);
                 }
                 else
