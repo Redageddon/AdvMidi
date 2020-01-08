@@ -22,9 +22,10 @@ namespace AdvMidi.Modes
             inputDevice.EventReceived += OnEventReceived;
 
             while (true) inputDevice.StartEventsListening();
-
+            
             void OnEventReceived(object sender, MidiEventReceivedEventArgs e)
             {
+                
                 var _ = (NoteOnEvent) e.Event;
                 int note = _.NoteNumber;
                 if (_.Velocity != 127) return;

@@ -39,6 +39,9 @@ namespace AdvMidi.Modes
                     Console.WriteLine("Key Presets finished. You can use it now.");
                     ExecutePress.OpenExecution();
                     break;
+                case 4:
+                    GifReader.GifEntrance();
+                    break;
                 default:
                     Console.Clear();
                     Console.WriteLine("This has not been implemented yet");
